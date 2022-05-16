@@ -8,6 +8,7 @@ RUN conda env create -f environment.yml
 
 # Activate the environment, and make sure it's activated:
 RUN conda activate myenv
+RUN pip install -r requirements.txt
 RUN echo "Make sure flask is installed:"
 RUN python -c "import flask"
 
