@@ -1,6 +1,5 @@
 FROM continuumio/miniconda3
 
-WORKDIR /app
 COPY requirements.txt ./requirements.txt
 # Create the environment:
 RUN conda env create -f environment.yml
