@@ -13,4 +13,4 @@ RUN python -c "import flask"
 
 # The code to run when container is started:
 COPY run.py .
-ENTRYPOINT ["streamlit","run","run.py"]
+ENTRYPOINT ["streamlit","run","app.py"]
