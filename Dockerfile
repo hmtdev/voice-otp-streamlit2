@@ -5,7 +5,6 @@ WORKDIR /
 COPY . .
 
 # Create conda environment
-RUN conda env create -f environment.yml
 RUN conda config --add channels conda-forge
 RUN conda install pyaudio
 # Activate conda environment
