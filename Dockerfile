@@ -1,15 +1,16 @@
-FROM continuumio/miniconda:latest
+FROM continuumio/miniconda3
 
-WORKDIR /
+WORKDIR /app
 
-COPY . .
+# Create the environment:
+COPY environment.yml .
+RUN conda env create -f environment.yml
 
-# Create conda environment
-RUN conda create -n venv
-RUN conda config --add channels conda-forge
-RUN conda install pyaudio
-# Activate conda environment
-RUN conda activate venv
-RUN conda install --yes --file requirements.txt
-# Run python script
-CMD ["streamlit","run", "app.py"]
+# Activate the environment, and make sure it's activated:
+RUN conda activate myenv
+RUN echo "Make sure flask is installed:"
+RUN python -c "import flask"
+
+# The code to run when container is started:
+COPY run.py .
+ENTRYPOINT ["streamlit","run","run.py"]
