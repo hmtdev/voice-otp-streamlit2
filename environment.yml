@@ -1,0 +1,8 @@
+name: my_env
+channels:
+  - miniconda
+  - conda-forge
+  - defaults
+dependencies:
+  - flask
+  - python=3.8
